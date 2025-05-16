@@ -6,11 +6,7 @@ const app = express();
 // db connection
 connectDB();
 
-app.use(cors({
-origin:["https://deploy-mern-lwhq.vercel.app"],
-        methods:["POST","GET"],
-        credentials:true
-            ));
+app.use(cors());
 app.use(express.json());
 
 const routes = require('./routes');
