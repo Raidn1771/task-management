@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI || 'mongodb://localhost:27017/TODO-DB',
+      process.env.MONGODB_URL || 'mongodb://localhost:27017/TODO-DB',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
