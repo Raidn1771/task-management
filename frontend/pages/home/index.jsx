@@ -30,7 +30,7 @@ const Home = () => {
 
   const onAddclick = async () => {
     const response = await axios.post(
-      'http://localhost:3000/api/todo/addtodo',
+      'https://task-management-backend-ehcv.onrender.com/api/todo/addtodo',
       {
         title: data,
       }
@@ -45,7 +45,7 @@ const Home = () => {
   // gettodos
   const gettodos = async () => {
     const response = await axios.get(
-      'http://localhost:3000/api/todo/showtodo?sortorder=asc' // Use 'asc' for oldest first, 'desc' for newest first
+      'https://task-management-backend-ehcv.onrender.com/api/todo/showtodo?sortorder=asc' // Use 'asc' for oldest first, 'desc' for newest first
     );
     // console.log(response.data);
     setTodos(response.data);
@@ -65,7 +65,7 @@ const Home = () => {
   const onDeleteClick02 = async id => {
     try {
       const response = await axios.delete(
-        'http://localhost:3000/api/todo/deletetodo/' + id
+        'https://task-management-backend-ehcv.onrender.com/api/todo/deletetodo/' + id
       );
       if (response.status === 200) {
         const filteredData = todos.filter(todo => todo._id !== id);
@@ -91,12 +91,12 @@ const Home = () => {
     console.log(id);
     try {
       const response = await axios.patch(
-        'http://localhost:3000/api/todo/edittodo/' + id,
+        'https://task-management-backend-ehcv.onrender.com/api/todo/edittodo/' + id,
         { title: changeText } // Include the updated text in the request body
       );
       if (response.status === 200) {
         const updatedTodos = await axios.get(
-          'http://localhost:3000/api/todo/showtodo'
+          'https://task-management-backend-ehcv.onrender.com/api/todo/showtodo'
         );
         setTodos(updatedTodos.data);
       }
@@ -111,12 +111,12 @@ const Home = () => {
   const onStarClick = async (id, currentPriority) => {
     try {
       const response = await axios.patch(
-        'http://localhost:3000/api/todo/edittodo/' + id,
+        'https://task-management-backend-ehcv.onrender.com/api/todo/edittodo/' + id,
         { priority: !currentPriority } // Toggle priority based on current state
       );
       if (response.status === 200) {
         const updatedTodos = await axios.get(
-          'http://localhost:3000/api/todo/showtodo'
+          'https://task-management-backend-ehcv.onrender.com/api/todo/showtodo'
         );
         setTodos(updatedTodos.data);
       }
@@ -138,7 +138,7 @@ const Home = () => {
 
   const onImpClick = async () => {
     const response = await axios.get(
-      'http://localhost:3000/api/todo/showtodo?sortby=priority&sortorder=desc'
+      'https://task-management-backend-ehcv.onrender.com/api/todo/showtodo?sortby=priority&sortorder=desc'
     );
     setTodos(response.data);
     handleRowClick('important');
@@ -147,7 +147,7 @@ const Home = () => {
 
   const onFilterClick = async () => {
     const response = await axios.get(
-      'http://localhost:3000/api/todo/showtodo?priority=true&sortby=createdAt&sortorder=desc'
+      'https://task-management-backend-ehcv.onrender.com/api/todo/showtodo?priority=true&sortby=createdAt&sortorder=desc'
     );
     setTodos(response.data);
     handleRowClick('filter');
