@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signup } from '../../Utils/axios';
+import { signup } from '../../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './signup.css';
